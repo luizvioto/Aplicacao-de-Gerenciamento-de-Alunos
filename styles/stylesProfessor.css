@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display:flex;
+    font-family: sans-serif;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #f3f4f6;
+    min-height: 100vh;
+}
+
+.sidebar{
+    width: 260px;
+    background: #fff;
+    border-right: 1px solid;
+    height: 100vh;
+
+    display:flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+}
+
+.sidebarHeader{
+    text-align: center;
+    padding: 10px;
+}
+
+.sidebarNav{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.sidebarNav a{
+    background: #6366f1;
+    color: #fff;
+    padding: 5px;
+    text-align: left;
+}
+
+#sair{
+    background: #6366f1;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+}
+
+.mainContent{
+    flex: 1;
+    max-width: 1000px;
+    padding: 1.5rem;
+}
+
+.secaoHeader{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listaAlunos{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card{
+    background: #fff;
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalhes{
+    background: #6366f1;
+    color: #fff;
+    padding: 5px;
+}
+
+.gradeHoraria{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.diaColuna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diaColuna h3{
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    border-bottom: 2px solid;
+    text-align: center;
+}
+
+.horario{
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.horario.ocupado{
+    background: #e0e7ff;
+    border: 1px solid #c7d2fe;
+}
+
+.horario.livre{
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    color: #9ca3af;
+}
+
+.subtexto{
+    color: #6b7280;
+    font-size: 14px;
+}
+
