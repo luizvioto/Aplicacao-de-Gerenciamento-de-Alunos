@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f3f4f6;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.btn-seletor {
+    flex: 1;
+    background: #f9fafb;
+    color: #6b7280;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-seletor.ativo {
+    background: #6366f1;
+    color: #fff;
+    border-color: #6366f1;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.forms label {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+    color: #4b5563;
+}
+
+.forms input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
+    outline: none;
+}
+
+.forms input:focus {
+    border-color: #6366f1;
+}
+
+.enter {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 25px;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.enter:hover {
+    background: #333;
+}

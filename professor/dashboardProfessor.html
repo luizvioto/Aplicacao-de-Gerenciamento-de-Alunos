@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Professor</title>
+    <link rel="stylesheet" href="styleProfessor.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2>Olá, Eric!</h2>
+            <p style="color: #6b7280; font-size: 13px; margin-top: 5px;">Portal do Professor</p>
+        </div>
+        <nav class="sidebarNav">
+            <a href="#" id="nav-hoje" class="ativo" onclick="mudarAba('hoje', this)">Aulas de Hoje</a>
+            <a href="#" id="nav-agenda" onclick="mudarAba('agenda', this)">Agendamento</a>
+            <a href="#" id="nav-alunos" onclick="mudarAba('alunos', this)">Alunos</a>
+        </nav>
+        <div class="sidebarFooter">
+            <a id="sair" href="../index.html">Sair da Conta</a>
+        </div>
+    </aside>
+
+    <main class="mainContent">
+        <section id="hoje" class="aba-conteudo">
+            <div class="secaoHeader">
+                <h1>Aulas de Hoje</h1>
+            </div>
+            <div class="listaAlunos">
+                <div class="card">
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <span class="info" style="color: #6366f1;">14:00</span> 
+                        <span class="info">Pedro</span>
+                    </div>
+                    <button class="detalhes" onclick="abrirPerfil('Pedro')">Ver Perfil</button>
+                </div>
+                <div class="card">
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <span class="info" style="color: #6366f1;">16:00</span> 
+                        <span class="info">Ana</span>
+                    </div>
+                    <button class="detalhes" onclick="abrirPerfil('Ana')">Ver Perfil</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="alunos" class="aba-conteudo secao-oculta">
+            <div class="secaoHeader">
+                <h1>Meus Alunos</h1>
+                <button class="detalhes" onclick="abrirModalCadastro()">+ Cadastrar Aluno</button>
+            </div>
+            <div class="listaAlunos">
+                <div class="card">
+                    <div>
+                        <div class="info" style="margin-bottom: 4px;">Pedro</div>
+                        <div class="subtexto">Iniciante • Ativo</div>
+                    </div>
+                    <button class="detalhes" onclick="abrirPerfil('Pedro')">Abrir Perfil</button>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="info" style="margin-bottom: 4px;">Ana</div>
+                        <div class="subtexto">Intermediário • Ativo</div>
+                    </div>
+                    <button class="detalhes" onclick="abrirPerfil('Ana')">Abrir Perfil</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="agenda" class="aba-conteudo secao-oculta">
+            <div class="secaoHeader">
+                <h1>Grade Semanal</h1>
+                <button class="detalhes" onclick="abrirModalNovaAula()">+ Nova Aula</button>
+            </div>
+
+            <div class="card-bloco">
+                <div class="gradeHoraria">
+
+                    <div class="diaColuna">
+                        <h3>Seg</h3>
+                        <div class="horario ocupado">14:00 - Pedro</div>
+                    </div>
+
+                    <div class="diaColuna">
+                        <h3>Ter</h3>
+                        <div class="horario ocupado">16:00 - Ana</div>
+                    </div>
+
+                    <div class="diaColuna">
+                        <h3>Qua</h3>
+                    </div>
+
+                    <div class="diaColuna">
+                        <h3>Qui</h3>
+                        <div class="horario ocupado">14:00 - Pedro</div>
+                    </div>
+
+                    <div class="diaColuna">
+                        <h3>Sex</h3>
+                        <div class="horario ocupado">16:00 - Ana</div>
+                    </div>
+
+                    <div class="diaColuna">
+                        <h3>Sáb</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalPerfil" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2 id="p-nome">Nome do Aluno</h2>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn-editar-perfil" onclick="iniciarEdicao()">Editar</button>
+                    <button class="btn-fechar" onclick="fecharModal()">&times;</button>
+                </div>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="tab-btn active" onclick="switchTab('tab-info', this)">Informações</button>
+                <button class="tab-btn" onclick="switchTab('tab-hist', this)">Histórico</button>
+                <button class="tab-btn" onclick="switchTab('tab-docs', this)">Materiais</button>
+            </div>
+
+            <div id="tab-info" class="tab-content active">
+                <p><strong>Idade:</strong> <span id="p-idade">-</span></p>
+                <p><strong>Nível:</strong> <span id="p-nivel">-</span></p>
+                <p><strong>Status:</strong> <span id="p-status">-</span></p>
+                <p><strong>Telefone Aluno:</strong> <span id="p-tel">-</span></p>
+                <p><strong>Telefone Responsável:</strong> <span id="p-tel-pais">-</span></p>
+                <p><strong>Horários:</strong> <span id="p-horarios">-</span></p>
+            </div>
+
+            <div id="tab-hist" class="tab-content">
+                <div id="lista-historico"></div>
+            </div>
+
+            <div id="tab-docs" class="tab-content">
+                <div id="lista-docs"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCadastro" class="modal-overlay">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>Novo Aluno</h2>
+                <button class="btn-fechar" onclick="fecharModalCadastro()">&times;</button>
+            </div>
+
+            <form onsubmit="salvarAluno(event)">
+                <div class="modal-body form-grid">
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="cad-nome">Nome Completo:</label>
+                        <input type="text" id="cad-nome" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="cad-idade">Idade:</label>
+                        <input type="number" id="cad-idade" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="cad-nivel">Nível:</label>
+                        <select id="cad-nivel" class="form-control">
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="cad-telefone">Telefone Aluno:</label>
+                        <input type="text" id="cad-telefone" class="form-control" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="cad-fone-pais">Telefone Responsável:</label>
+                        <input type="text" id="cad-fone-pais" class="form-control" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="cad-status">Status Inicial:</label>
+                        <select id="cad-status" class="form-control">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-fechar-modal" onclick="fecharModalCadastro()">Cancelar</button>
+                    <button type="submit" class="detalhes">Salvar Cadastro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalNovaAula" class="modal-overlay">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>Agendar Nova Aula</h2>
+                <button class="btn-fechar" onclick="fecharModalNovaAula()">&times;</button>
+            </div>
+
+            <form onsubmit="salvarNovaAula(event)">
+                <div class="modal-body form-grid">
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="aula-aluno">Aluno:</label>
+                        <select id="aula-aluno" class="form-control" required>
+                            <option value="" disabled selected>Selecione um aluno cadastrado...</option>
+                            <option value="Pedro">Pedro</option>
+                            <option value="Ana">Ana</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="aula-data">Data:</label>
+                        <input type="date" id="aula-data" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="aula-hora">Horário:</label>
+                        <input type="time" id="aula-hora" class="form-control" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="aula-recorrencia">Recorrência:</label>
+                        <select id="aula-recorrencia" class="form-control" required>
+                            <option value="Unica">Aula Única (Não se repete)</option>
+                            <option value="Semanal">Semanal (Toda semana)</option>
+                            <option value="Quinzenal">Quinzenal (A cada 15 dias)</option>
+                            <option value="Mensal">Mensal (Uma vez ao mês)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-fechar-modal" onclick="fecharModalNovaAula()">Cancelar</button>
+                    <button type="submit" class="detalhes">Confirmar Agendamento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="scriptProfessor.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            font-family: sans-serif;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background: #f3f4f6;
+            min-height: 100vh;
+        }
+
+        /* ========================================== */
+        /* LAYOUT BASE                                */
+        /* ========================================== */
+        .sidebar {
+            width: 260px;
+            background: #fff;
+            border-right: 1px solid #e5e7eb;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebarHeader {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .sidebarNav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .sidebarNav a {
+            color: #4b5563;
+            padding: 10px;
+            text-align: left;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        /* Cor atualizada para o Azul Índigo */
+        .sidebarNav a.ativo {
+            background: #6366f1;
+            color: #fff;
+        }
+
+        #sair {
+            background: #111;
+            color: #fff;
+            padding: 10px;
+            margin: 10px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .mainContent {
+            flex: 1;
+            max-width: 1000px;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .secaoHeader {
+            margin-bottom: 20px;
+        }
+
+        .secaoHeader h1 {
+            color: #111;
+            font-size: 1.8rem;
+        }
+
+        .secao-oculta {
+            display: none;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            margin-bottom: 15px;
+        }
+
+        /* ========================================== */
+        /* ESTILOS ESPECÍFICOS DO ALUNO               */
+        /* ========================================== */
+        
+        .checkin-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .aula-info h2 {
+            color: #6366f1; /* Título no novo tom de azul */
+            margin-bottom: 5px;
+        }
+
+        .aula-info p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .btn-confirmar {
+            background: #10B981; 
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-confirmar:hover { background: #059669; }
+        
+        .btn-confirmar:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            color: #6b7280;
+        }
+
+        .btn-remarcar {
+            background: transparent;
+            color: #6b7280;
+            border: 1px solid #d1d5db;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-remarcar:hover { background: #f3f4f6; }
+
+        /* Estilos do Log de Mensagens */
+        .log-container {
+            max-height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
+        }
+
+        /* Personalizando a barra de rolagem do log */
+        .log-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .log-container::-webkit-scrollbar-track {
+            background: #f3f4f6; 
+            border-radius: 4px;
+        }
+        .log-container::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 4px;
+        }
+
+        .log-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .log-remetente {
+            font-size: 12px;
+            font-weight: bold;
+            color: #6366f1; /* Destaque no nome em azul */
+        }
+
+        .log-data {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .log-texto {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        /* Sala de Treino Grid */
+        .treino-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pomodoro-display {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #111;
+            text-align: center;
+            margin: 20px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .pomodoro-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-pomo {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-pomo.play { background: #6366f1; color: #fff; } /* Botão de play em azul */
+        .btn-pomo.pause { background: #f3f4f6; color: #111; border: 1px solid #d1d5db;}
+        
+        .pdf-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .pdf-item:last-child { border-bottom: none; }
+
+        .pdf-nome {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .btn-download {
+            background: #e0e7ff;
+            color: #4f46e5;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .metronomo-box {
+            background: #111;
+            color: #fff;
+            height: 150px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            border: 2px dashed #444;
+        }
+
+        @media (max-width: 768px) {
+            .treino-grid { grid-template-columns: 1fr; }
+            .sidebar { width: 200px; }
+        }

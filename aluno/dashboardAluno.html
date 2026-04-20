@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Aluno</title>
+    <link rel="stylesheet" href="styleAluno.css">
+        
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2>Olá, Pedro!</h2>
+            <p style="color: #6b7280; font-size: 13px; margin-top: 5px;">Portal do Aluno</p>
+        </div>
+        <nav class="sidebarNav">
+            <a href="#" id="nav-inicio" class="ativo" onclick="mudarAba('inicio', this)">Início</a>
+            <a href="#" id="nav-treino" onclick="mudarAba('treino', this)">Sala de Treino</a>
+        </nav>
+        <div class="sidebarFooter">
+            <a id="sair" href="../index.html">Sair da Conta</a>
+        </div>
+    </aside>
+
+    <main class="mainContent">
+        
+        <section id="inicio" class="aba-conteudo">
+            <div class="secaoHeader">
+                <h1>Meu Painel</h1>
+            </div>
+
+            <div class="card" id="card-aula">
+                <div class="checkin-container">
+                    <div class="aula-info">
+                        <h2>Próxima Aula</h2>
+                        <p><strong>Quinta-feira, 14:00</strong></p>
+                        <p style="margin-top: 5px;">Tópico: Escala Pentatônica Am</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;" id="botoes-checkin">
+                        <button class="btn-remarcar">Solicitar Remarcação</button>
+                        <button class="btn-confirmar" onclick="confirmarPresenca()" id="btn-confirma">Confirmar Presença</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 15px; color: #333;">Feedback do Professor</h3>
+                
+                <div class="log-container">
+                    
+                    <div class="log-item">
+                        <div class="log-header">
+                            <span class="log-remetente">Prof. Eric</span>
+                            <span class="log-data">Hoje, 09:30</span>
+                        </div>
+                        <p class="log-texto">"Fala Pedro! Não esquece de focar na batida de mão direita da música que vimos na última aula. Usa o metrônomo da sala de treino em 80 BPM."</p>
+                    </div>
+
+                    <div class="log-item">
+                        <div class="log-header">
+                            <span class="log-remetente">Prof. Eric</span>
+                            <span class="log-data">09/04/2026</span>
+                        </div>
+                        <p class="log-texto">"Excelente evolução na escala pentatônica! Continua praticando o exercício da Apostila Básica. Na próxima aula vamos começar a ver bends."</p>
+                    </div>
+
+                    <div class="log-item">
+                        <div class="log-header">
+                            <span class="log-remetente">Prof. Eric</span>
+                            <span class="log-data">02/04/2026</span>
+                        </div>
+                        <p class="log-texto">"Aula muito produtiva. Lembre-se de não tensionar muito o ombro direito ao tocar os acordes maiores. Assiste de novo ao vídeo de postura."</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="treino" class="aba-conteudo secao-oculta">
+            <div class="secaoHeader">
+                <h1>Sala de Treino</h1>
+                <p style="color: #6b7280; margin-top: 5px;">Foque no seu estudo diário.</p>
+            </div>
+
+            <div class="treino-grid">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <h3 style="text-align: center; color: #333;">Timer de Estudo (Pomodoro)</h3>
+                        <div class="pomodoro-display" id="timer-display">25:00</div>
+                        <div class="pomodoro-controls">
+                            <button class="btn-pomo play" onclick="iniciarTimer()">Iniciar</button>
+                            <button class="btn-pomo pause" onclick="pausarTimer()">Pausar</button>
+                            <button class="btn-pomo pause" onclick="resetarTimer()">Zerar</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px; color: #333;">Metrônomo</h3>
+                        <div class="metronomo-box">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px; color: #333;">Meus Materiais (PDFs)</h3>
+                        
+                        <div class="pdf-item">
+                            <div class="pdf-nome">📄 Apostila_Basica.pdf</div>
+                            <button class="btn-download">Abrir</button>
+                        </div>
+                        
+                        <div class="pdf-item">
+                            <div class="pdf-nome">📄 Cifra_Wish_You_Were_Here.pdf</div>
+                            <button class="btn-download">Abrir</button>
+                        </div>
+
+                        <div class="pdf-item">
+                            <div class="pdf-nome">📄 Exercicios_Pentatonica.pdf</div>
+                            <button class="btn-download">Abrir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scriptAluno.js"></script>
+</body>
+
+</html>

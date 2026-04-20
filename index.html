@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="cardHeader">
+            Bem-Vindo
+        </div>
+        
+        <div class="selector">
+            <button id="btn-aluno" class="btn-seletor ativo" onclick="selecionarPerfil('aluno')">Sou Aluno</button>
+            <button id="btn-professor" class="btn-seletor" onclick="selecionarPerfil('professor')">Sou Professor</button>
+        </div>
+        
+        <div class="forms">
+            <div>
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" placeholder="Digite seu usuário">
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="••••••••">
+            </div>
+        </div>
+        
+        <button class="enter" onclick="fazerLogin()">Entrar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
